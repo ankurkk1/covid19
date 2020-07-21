@@ -1,0 +1,38 @@
+<app-home-header></app-home-header>
+<div>
+    <table class="table-responsive custm-table">
+        <thead>
+            <tr>
+                <th>Info</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Country</td>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td>Total Cases</td>
+                <td>{{totalCases}}</td>
+            </tr>
+            <tr>
+                <td>New Cases</td>
+                <td>{{newCases}}</td>
+            </tr>
+            <tr>
+                <td>Total Deaths</td>
+                <td>{{totalDeaths}}</td>
+            </tr>
+            <tr>
+                <td>New Deaths</td>
+                <td>{{newDeaths}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-primary" routerLink="/home">Back</button>
+    </div>
+</div>
+
+<app-home-footer></app-home-footer>

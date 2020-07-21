@@ -1,0 +1,106 @@
+<app-home-header></app-home-header>
+
+    
+    <div class="row col-12 col-sm-12 col-md-12 ml-5 ">
+    <div class="col-3 col-sm-3 col-md-3">
+    <mat-card>      
+      <img mat-card-avatar src="../../assets/corona.jpg">
+      <mat-card-title class="mt-2">Total Cases </mat-card-title>
+      <mat-card-content><b>{{totalCases}}</b></mat-card-content>      
+    </mat-card>
+    </div>
+    <div class="col-3 col-sm-3 col-md-3">
+    <mat-card>    
+      
+      <img mat-card-avatar src="../../assets/death.jpg">
+      <mat-card-title class="mt-2">Total Deaths </mat-card-title>
+      <mat-card-content><b>{{totalDeaths}}</b></mat-card-content>     
+    </mat-card>
+    </div>
+    <div class="col-3 col-sm-3 col-md-3">
+    <mat-card>    
+      
+      <img mat-card-avatar src="../../assets/recover.jpg">
+      <mat-card-title class="mt-2">Total Recovered</mat-card-title>
+      <mat-card-content><b>{{totalRecovered}}</b></mat-card-content>     
+    </mat-card>
+    </div>
+    <div class="col-3 col-sm-3 col-md-3">
+    <mat-card>    
+      
+      <img mat-card-avatar src="../../assets/active.jpg">
+      <mat-card-title class="mt-2">Active Cases </mat-card-title>
+      <mat-card-content><b>{{activeCases}}</b></mat-card-content>     
+    </mat-card>
+  </div>
+  </div>
+    <div>
+      <!-- <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div> -->
+        
+          <mat-table class="mat-elevation-z8 cv-table" [dataSource]="dataSource">          
+              
+              <ng-container matColumnDef="sno">
+                <mat-header-cell *matHeaderCellDef class="column-header"> S. No. </mat-header-cell>
+                <mat-cell *matCellDef="let i=index"> {{i+1}} </mat-cell>
+              </ng-container>          
+              
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Country </mat-header-cell>
+                <mat-cell *matCellDef="let element" (click)="openCountry(element.name)"> {{element.name}} </mat-cell>
+              </ng-container>          
+              
+              <ng-container matColumnDef="totalCases">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Total Cases </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.totalCases}} </mat-cell>
+              </ng-container>          
+              
+              <ng-container matColumnDef="newCases">
+                <mat-header-cell *matHeaderCellDef class="column-header"> New Cases </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.newCases}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="totalDeaths">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Total Deaths </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.totalDeaths}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="newDeaths">
+                <mat-header-cell *matHeaderCellDef class="column-header"> New Deaths </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.newDeaths}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="totalRecovered">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Total Recovered </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.totalRecovered}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="activeCases">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Active Cases </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.activeCases}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="criticalCases">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Critical Cases </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.criticalCases}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="population">
+                <mat-header-cell *matHeaderCellDef class="column-header"> Population </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.population}} </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns" class="cursor-pointer" (click)="openCountry(row.name)"></mat-row>
+            </mat-table>
+          
+            <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+         
+    </div>
+    
+
+<app-home-footer></app-home-footer>

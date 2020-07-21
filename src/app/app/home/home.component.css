@@ -1,0 +1,27 @@
+
+.custm-table>thead>tr>th{
+    background: #434345;
+    color: #fff;
+    font-weight: normal;
+    font-size: 15px;
+}
+table {
+    width: 100%;
+  }
+  .grid {
+    flex-wrap:wrap;
+    width:100px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.column-header{
+    background: #434345;
+    color: #fff;
+    font-weight: normal;
+    font-size: 15px;
+}
+.cv-table{
+    padding: 35px;
+    margin-top: 5px;
+}
