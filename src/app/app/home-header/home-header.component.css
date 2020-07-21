@@ -1,0 +1,100 @@
+/* header */
+a:hover{text-decoration: none;}
+.top-header{background:#0c1e2e;padding:0px 0;}	
+.top-header a:hover{text-decoration:none;}
+.top-header ul{display:flex;margin-bottom:0;padding-left:0; justify-content: flex-end;   align-items: center;}
+.top-header ul li{border-right: 1px solid #0c1e2e;
+    padding: 5px 5px;
+  display:block;}
+  .top-header ul li a{color: #fff;}
+	.nobdr{border:none!important;}
+.top-right-nav ul{    justify-content: flex-end;margin-bottom: 0;    align-items: center;}	
+.lang select{background:transparent;color:#fff;border:none;font-size:14px;}
+.text-size a{display:inline-block;margin:0 5px;}
+.theme span.wt{background:#fff;border-radius:2px;display:inline-block;height:14px;width:14px;margin:3px;}
+.theme span.blak{background:#000;border-radius:2px;display:inline-block;height:14px;width:14px;margin:3px;}
+.logo-sec-wraper {
+    background: #000;
+}
+.logo-sec img {
+    float: left;
+    margin-right: 10px;
+}
+.logo-sec {
+    padding: 10px 15px;
+}
+.logo-sec a {
+    display: flex;
+    align-items: center;
+}
+.logo-sec p {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1;
+    margin: 0;
+    font-family: 'Playfair Display';
+    font-weight: 400;
+}
+.logo-sec p span {
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-size: 0.51em;
+    color: #dcdcdc;
+    display: block;
+    margin-top: 5px;
+}
+.main-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 47px;
+    align-items: center;
+}
+.main-menu ul li {
+    display: inline-block;
+    margin: 10px 20px;
+    color: #fff;
+}
+.main-menu ul li a:hover {
+    text-decoration: none;
+    color: #29addc;
+}
+ .main-menu ul li:nth-child(1) {
+    border-bottom: 2px solid #29addc !important;
+}
+.main-menu ul li:nth-child(2) {
+    border-bottom: 2px solid #58d68d !important;
+}
+.main-menu ul li:nth-child(3) {
+    border-bottom: 2px solid #988355 !important;
+}
+.main-menu ul li:nth-child(4) {
+    border-bottom: 2px solid #e55e48 !important; 
+} 
+.main-menu ul li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'robotomedium';
+    font-weight: 500;
+    font-size: 13px;
+}
+.custfont {
+    font-size: 0.53em !important;
+   
+}
+
+
+@media screen and (max-width: 991px) {
+    .main-menu ul li{margin:10px 5px;}  
+}
+@media screen and (max-width: 767px) {
+    .main-menu ul li a{font-size: 12px;}
+    .main-menu ul{flex-wrap: wrap;margin-top: 0;}
+    .main-menu ul li{margin:10px 5px;} 
+}
+@media screen and (max-width: 575px) {
+    
+}
+/* header */
