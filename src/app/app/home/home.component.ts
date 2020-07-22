@@ -26,11 +26,12 @@ export class HomeComponent implements OnInit {
   ) { }
 
   displayedColumns: string[] = ['sno','name', 'totalCases', 'newCases', 'totalDeaths', 'newDeaths','totalRecovered','activeCases','criticalCases','population'];
-  dataSource;
-
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  //dataSource = new MatTableDataSource(COUNTRY_DATA);
+    dataSource;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource();
     this.userService.getCovidStatusWorld().subscribe(data=>{
       this.totalCases = (data as any).totalCases;
       this.totalDeaths = (data as any).totalDeaths;
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.userService.getCovidStatusCountries().subscribe(data=>{
-      this.dataSource = data;
+      this.dataSource.data = data;
     })
   }
 
@@ -50,15 +51,26 @@ export class HomeComponent implements OnInit {
       this.router.navigateByUrl('/country-detail');
     })
   }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
   
 
 }
 
-export interface PeriodicElement {
+export interface CountryDetails {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  totalCases: number;
+  newCases: number;
+  totalDeaths: number;
+  newDeaths: number;
+  totalRecovered: number;
+  activeCases: number;
+  criticalCases: number;
+  population: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [];
+const COUNTRY_DATA: CountryDetails[] = [];

@@ -23,5 +23,35 @@ table {
 }
 .cv-table{
     padding: 35px;
-    margin-top: 5px;
+    
 }
+.newCases{
+    background: #f8b439;
+    color: #fff;
+}
+.deaths{
+    background: red;
+    color: #fff;
+}
+.no-deaths{
+    background: #fff;
+    color: #000;
+}
+.text-right{
+    display:flex !important;
+    justify-content:flex-end!important;
+}
+/* .mat-cell{
+    display:flex !important;
+    justify-content:flex-end!important;
+     
+  } */
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

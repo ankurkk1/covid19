@@ -34,11 +34,17 @@
     </mat-card>
   </div>
   </div>
-    <div>
-      <!-- <div class="spinner-container" *ngIf="dataSource.loading$ | async">
-        <mat-spinner></mat-spinner>
-    </div> -->
-        
+    <div> 
+      <div class="row justify-content-center mt-2">
+       <div class="col-md-4 col-sm-12">
+        <span>
+          <!-- <mat-label>Enter country name</mat-label> -->
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter country name">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+        </span>             
+        </div>  
+      </div>
+
           <mat-table class="mat-elevation-z8 cv-table" [dataSource]="dataSource">          
               
               <ng-container matColumnDef="sno">
@@ -48,57 +54,57 @@
               
               <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Country </mat-header-cell>
-                <mat-cell *matCellDef="let element" (click)="openCountry(element.name)"> {{element.name}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
               </ng-container>          
               
-              <ng-container matColumnDef="totalCases">
+              <ng-container matColumnDef="totalCases" class="text-right">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Total Cases </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.totalCases}} </mat-cell>
+                <mat-cell *matCellDef="let element" > {{element.totalCases}} </mat-cell>
               </ng-container>          
               
               <ng-container matColumnDef="newCases">
                 <mat-header-cell *matHeaderCellDef class="column-header"> New Cases </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.newCases}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right" [ngClass]="element.newCases != '0' ? 'newCases' : (element.newCases == '0' ? 'no-deaths' : 'newCases')"> {{element.newCases}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="totalDeaths">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Total Deaths </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.totalDeaths}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right"> {{element.totalDeaths}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="newDeaths">
                 <mat-header-cell *matHeaderCellDef class="column-header"> New Deaths </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.newDeaths}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right" matTooltip="New Deaths" [ngClass]="element.newDeaths != '0' ? 'deaths' : (element.newDeaths == '0' ? 'no-deaths' : 'deaths')"> {{element.newDeaths}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="totalRecovered">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Total Recovered </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.totalRecovered}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right"> {{element.totalRecovered}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="activeCases">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Active Cases </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.activeCases}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right"> {{element.activeCases}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="criticalCases">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Critical Cases </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.criticalCases}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right"> {{element.criticalCases}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="population">
                 <mat-header-cell *matHeaderCellDef class="column-header"> Population </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.population}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="text-right"> {{element.population}} </mat-cell>
               </ng-container>
           
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
               <mat-row *matRowDef="let row; columns: displayedColumns" class="cursor-pointer" (click)="openCountry(row.name)"></mat-row>
             </mat-table>
           
-            <mat-paginator [length]="100"
+            <!-- <mat-paginator [length]="100"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]">
-            </mat-paginator>
+            </mat-paginator> -->
          
     </div>
     
