@@ -10,8 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './_services/user.service';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule, MatCard } from "@angular/material";
+  MatSortModule, MatTableModule, MatCard, MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material";
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,13 @@ import {MatCardModule} from '@angular/material/card';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatCardModule    
+    MatCardModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
-  providers: [UserService],
+  providers: [UserService,{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
